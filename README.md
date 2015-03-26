@@ -9,7 +9,7 @@ feedback/comments to improve the reusability of these scripts.
 
 Scripting examples:
 
-http://bit.ly/perlvco 
-http://bit.ly/pythonvco 
-http://bit.ly/powershellvco 
-http://bit.ly/restvco 
+* http://bit.ly/perlvco 
+* http://bit.ly/pythonvco 
+* http://bit.ly/powershellvco 
+* http://bit.ly/restvco 
