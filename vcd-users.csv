@@ -1,0 +1,27 @@
+username,password,enabled,role,fullname,email,phone,im,storedvmquota,runningvmquota
+john,vmware,TRUE,Organization Administrator,John VMware,john@org.com,555-1010,johnvmware,0,0
+jane,vmware,TRUE,vApp User,Jane VMware,jane@org.com,555-1111,janevmware,2,2
+michael,vmware,TRUE,Catalog Author,Michael VMware,michael@org.com,555-1212,michaelvmware,2,2
+michelle,vmware,TRUE,vApp Author,Michelle VMware,michelle@org.com,555-1313,michellevmware,2,2
+mike,vmware,TRUE,Console Access Only,Mike VMware,mike@org.com,555-1414,mikevmware,2,2
+shelly,vmware,TRUE,Organization Administrator,Shelly VMware,shelly@org.com,555-1515,shellyvmware,2,2
+lucian,vmware,TRUE,vApp User,Lucian VMware,lucian@org.com,555-1616,lucianvmware,2,2
+broderick,vmware,TRUE,Catalog Author,Broderick VMware,broderick@org.com,555-1717,broderickvmware,2,2
+santos,vmware,TRUE,vApp Author,Santos VMware,santos@org.com,555-1818,santosvmware,2,2
+roland,vmware,TRUE,Console Access Only,Roland VMware,roland@org.com,555-1919,rolandvmware,2,2
+kenneth,vmware,TRUE,Organization Administrator,Kennety VMware,kenneth@org.com,555-2020,kennethvmware,2,2
+jarrod,vmware,TRUE,vApp User,Jarrod VMware,jarrod@org.com,555-2121,jarrodvmware,2,2
+dominique,vmware,TRUE,Catalog Author,Dominique VMware,dominique@org.com,555-2222,dominiquevmware,2,2
+damian,vmware,TRUE,vApp Author,Damian VMware,damian@org.com,555-2323,damianvmware,2,2
+wilburn,vmware,TRUE,Console Access Only,Wilburn VMware,wilburn@org.com,555-2424,wilburnvmware,2,2
+santiago,vmware,TRUE,Organization Administrator,Santiago VMware,santiago@org.com,555-2525,santiagovmware,2,2
+phillip,vmware,TRUE,vApp User,Phillip VMware,phillip@org.com,555-2626,phillipvmware,2,2
+cornell,vmware,TRUE,Catalog Author,Cornell VMware,cornell@org.com,555-2727,cornellvmware,2,2
+doug,vmware,TRUE,vApp Author,Doug VMware,doug@org.com,555-2828,dougvmware,2,2
+korey,vmware,TRUE,Console Access Only,Korey VMware,korey@org.com,555-2929,koreyvmware,2,2
+earle,vmware,TRUE,Organization Administrator,Earle VMware,earle@org.com,555-3030,earlevmware,2,2
+jeremy,vmware,TRUE,vApp User,Jeremy VMware,jeremy@org.com,555-3131,jeremyvmware,2,2
+zachary,vmware,TRUE,Catalog Author,Zachary VMware,zachary@org.com,555-3232,zacharyvmware,2,2
+zack,vmware,TRUE,vApp Author,Zack VMware,zack@org.com,555-3333,zackvmware,2,2
+melvin,vmware,TRUE,Console Access Only,Melvin VMware,melvin@org.com,555-3434,melvinvmware,2,2
+mervin,vmware,TRUE,Organization Administrator,Mervin VMware,mervin@org.com,555-3535,mervinvmware,2,2
