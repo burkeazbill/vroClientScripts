@@ -8,8 +8,10 @@ The three scripts all maintain a similar format, but I invite you experts
 feedback/comments to improve the reusability of these scripts.
 
 Scripting examples:
-
 * http://bit.ly/perlvco 
 * http://bit.ly/pythonvco 
 * http://bit.ly/powershellvco 
 * http://bit.ly/restvco 
+
+Additionally, this Repository also has a custom bit.ly:
+* http://bit.ly/vroClientScripts
