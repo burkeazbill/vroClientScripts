@@ -1,0 +1,14 @@
+{
+    "parameters": [
+        {
+            "name": "namespace",
+            "scope": "local",
+            "type": "string",
+            "value": {
+                "string": {
+                    "value": "samplenamespace"
+                }
+            }
+        }
+    ]
+}
