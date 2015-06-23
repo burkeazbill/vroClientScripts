@@ -16,7 +16,8 @@ vroServer = {REPLACE WITH VRO URL:PORT}
 #
 #####
 import requests, json
- 
+requests.packages.urllib3.disable_warnings()
+
 # Create basic authorization for API
 vroAuth = requests.auth.HTTPBasicAuth(usr,pwd)
 # Set headers to allow for json format
