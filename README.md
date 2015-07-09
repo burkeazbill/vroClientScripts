@@ -17,4 +17,4 @@ Additionally, this Repository also has a custom bit.ly:
 * http://bit.ly/vroClientScripts
  
 If you're a Ruby Gem user, you may want to look into this other project (I have no affiliation with author):
-* https://github.com/activenetwork-automation/vcoworkflows/issues
+* https://github.com/activenetwork-automation/vcoworkflows
