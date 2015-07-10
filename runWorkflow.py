@@ -6,9 +6,14 @@
 
 """
 
+# TODO needs testing by someone other than me.
+# TODO build a script to retrieve a list of available workflows
+
+
 import argparse
 import requests
 import json
+import getpass
 
 def getargs():
     parser = argparse.ArgumentParser()
