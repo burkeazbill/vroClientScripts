@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """
 
 	Invoke a vRO workflow via the REST API. Added capability to specify arguments at the command line.
@@ -34,7 +36,7 @@ def getargs():
                         action='store',
                         help='Workflow ID')
     parser.add_argument('-j', '--json',
-                        required=False,
+                        required=True,
                         action='store',
                         dest='input_json',
                         help='Path to JSON post body')
@@ -49,8 +51,8 @@ def run_workflow(server, username, password, workflow, input_json, ssl_verify):
     try:
 
         with open(input_json, 'r') as f:
-            postdata = json.dumps(f)
-
+            postdata = json.load(f)
+            print postdata
         r = requests.post(url='https://' + server + 'vco/api/workflows/' + workflow + '/executions',
                           verify=ssl_verify,
                           auth=(username, password),
