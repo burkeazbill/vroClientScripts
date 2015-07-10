@@ -45,10 +45,8 @@ def getargs():
     args = parser.parse_args()
     return args
 
-def run_workflow(server, username, password, workflow, input_json, nosslverify):
+def run_workflow(server, username, password, workflow, input_json, ssl_verify):
     try:
-        if nosslverify:
-            ssl_verify = False
 
         with open(input_json, 'r') as f:
             postdata = json.dumps(f)
@@ -82,7 +80,11 @@ def main():
         password_request = "Target host '%s' Password: " % username
         password = getpass.getpass(password_request)
 
-    run_workflow(server, username, password, workflow, input_json, nosslverify)
+    if nosslverify:
+        ssl_verify = False
+        run_workflow(server, username, password, workflow, input_json, ssl_verify)
+    else:
+        run_workflow(server, username, password, workflow, input_json, ssl_verify=True)
 
 if __name__ == '__main__':
     main()
