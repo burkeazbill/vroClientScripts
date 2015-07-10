@@ -47,12 +47,14 @@ def getargs():
 
 def run_workflow(server, username, password, workflow, input_json, nosslverify):
     try:
+        if nosslverify:
+            ssl_verify = False
 
         with open(input_json, 'r') as f:
             postdata = json.dumps(f)
 
         r = requests.post(url='https://' + server + 'vco/api/workflows/' + workflow + '/executions',
-                          verify=nosslverify,
+                          verify=ssl_verify,
                           auth=(username, password),
                           headers= {'Content-Type': 'application/json',
                                     'Accept': 'application/json'},
