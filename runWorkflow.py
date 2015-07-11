@@ -53,7 +53,7 @@ def run_workflow(server, username, password, workflow, input_json, ssl_verify):
         with open(input_json, 'r') as f:
             postdata = json.load(f)
             print postdata
-        r = requests.post(url='https://' + server + 'vco/api/workflows/' + workflow + '/executions',
+        r = requests.post(url='https://' + server + '/vco/api/workflows/' + workflow + '/executions',
                           verify=ssl_verify,
                           auth=(username, password),
                           headers= {'Content-Type': 'application/json',
