@@ -22,7 +22,7 @@ def getargs():
     parser.add_argument('-s', '--server',
                         required=True,
                         action='store',
-                        help='vRealize Orchestrator server')
+                        help='vRealize Orchestrator server in format: FQDN:port or IP:port')
     parser.add_argument('-u', '--username',
                         required=False,
                         action='store',

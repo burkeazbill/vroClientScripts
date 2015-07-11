@@ -4,11 +4,11 @@ use MIME::Base64;
 use File::Slurp;
  
 # Update for your environment here. Use double quotes around each defined value.
-$usr = {REPLACE WITH YOUR VRO USERNAME}
-$pwd = {REPLACE WITH YOUR VRO PASSWORD}
-$wfid = {REPLACE WITH YOUR VRO WORKFLOW ID}
-$jsonFile = {REPLACE WITH PATH TO JSON BODY FILE}
-$vroServer = {REPLACE WITH VRO URL:PORT}
+$usr = {REPLACE WITH YOUR VRO USERNAME};
+$pwd = {REPLACE WITH YOUR VRO PASSWORD};
+$wfid = {REPLACE WITH YOUR VRO WORKFLOW ID};
+$jsonFile = {REPLACE WITH PATH TO JSON BODY FILE};
+$vroServer = {REPLACE WITH VRO URL:PORT};
  
 ###### Make no changes below this line ##########
 # Original Article: http://bit.ly/perlvco
