@@ -1,29 +1,96 @@
-# Update for your environment here. Use single quotes around each defined value.
-usr = {REPLACE WITH YOUR VRO USERNAME}
-pwd = {REPLACE WITH YOUR VRO PASSWORD}
-wfid = {REPLACE WITH YOUR VRO WORKFLOW ID}
-#NOTE: use double \\ or single / when specifying file path
-jsonFile = {REPLACE WITH PATH TO JSON BODY FILE}
-vroServer = {REPLACE WITH VRO URL:PORT}
- 
-##### Make no changes below this line ####
-# Original article: http://bit.ly/pythonvco
-# Import the modules to handle HTTP calls and work with json:
-#
-# requests: http://docs.python-requests.org/en/latest/user/install/
-# To install the "requests" module, python -m pip install requests
-# json (http://docs.python.org/2/library/json.html)
-#
-#####
-import requests, json
-requests.packages.urllib3.disable_warnings()
+#!/usr/bin/env python
 
-# Create basic authorization for API
-vroAuth = requests.auth.HTTPBasicAuth(usr,pwd)
-# Set headers to allow for json format
-headers = {'Content-Type':'application/json','Accept':'application/json'}
-url = 'https://' + vroServer + '/vco/api/workflows/' + wfid + '/executions'
-data = open(jsonFile).read()
-# NOTE: verify=False tells Python to ignore SSL Cert issues
-# Execute a workflow using a json file for the body:
-r = requests.post(url, data=data, verify=False, auth=vroAuth, headers=headers)
+"""
+
+	Invoke a vRO workflow via the REST API. Added capability to specify arguments at the command line.
+
+	If you omit the username and password arguments it will prompt for them. The password will be masked.
+
+"""
+
+# TODO needs testing by someone other than me.
+# TODO build a script to retrieve a list of available workflows
+
+
+import argparse
+import requests
+import json
+import getpass
+
+def getargs():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-s', '--server',
+                        required=True,
+                        action='store',
+                        help='vRealize Orchestrator server')
+    parser.add_argument('-u', '--username',
+                        required=False,
+                        action='store',
+                        help='Username to access vRealize Orchestrator')
+    parser.add_argument('-p', '--password',
+                        required=False,
+                        action='store',
+                        help='The password used to access vRealize Orchestrator')
+    parser.add_argument('-w', '--workflow',
+                        required=True,
+                        action='store',
+                        help='Workflow ID')
+    parser.add_argument('-j', '--json',
+                        required=True,
+                        action='store',
+                        dest='input_json',
+                        help='Path to JSON post body')
+    parser.add_argument('--nosslverify',
+    					required=False,
+    					action='store_true',
+    					help='Stop SSL certificate validation')
+    args = parser.parse_args()
+    return args
+
+def run_workflow(server, username, password, workflow, input_json, ssl_verify):
+    try:
+
+        with open(input_json, 'r') as f:
+            postdata = json.load(f)
+            print postdata
+        r = requests.post(url='https://' + server + 'vco/api/workflows/' + workflow + '/executions',
+                          verify=ssl_verify,
+                          auth=(username, password),
+                          headers= {'Content-Type': 'application/json',
+                                    'Accept': 'application/json'},
+                          data=postdata)
+
+        print r.status_code
+
+    except requests.RequestException as e:
+        print e
+
+
+def main():
+    args = getargs()
+    server = args.server
+    username = args.username
+    password = args.password
+    workflow = args.workflow
+    input_json = args.input_json
+    nosslverify = args.nosslverify
+
+    if not username:
+        username = raw_input("target host username:")
+
+    if not password:
+        password_request = "Target host '%s' Password: " % username
+        password = getpass.getpass(password_request)
+
+    if nosslverify:
+        ssl_verify = False
+        run_workflow(server, username, password, workflow, input_json, ssl_verify)
+    else:
+        run_workflow(server, username, password, workflow, input_json, ssl_verify=True)
+
+if __name__ == '__main__':
+    main()
+
+
+
+
