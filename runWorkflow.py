@@ -16,6 +16,7 @@ import argparse
 import requests
 import json
 import getpass
+from base64 import b64encode
 
 def getargs():
     parser = argparse.ArgumentParser()
@@ -50,20 +51,25 @@ def getargs():
 def run_workflow(server, username, password, workflow, input_json, ssl_verify):
     try:
 
+        authentication = b64encode(username + ':' + password).decode("ascii")
+
         with open(input_json, 'r') as f:
             postdata = json.load(f)
-            print postdata
-        r = requests.post(url='https://' + server + '/vco/api/workflows/' + workflow + '/executions',
+
+        r = requests.post(url='https://' + server + '/vco/api/workflows/' + workflow + '/executions/',
                           verify=ssl_verify,
-                          auth=(username, password),
-                          headers= {'Content-Type': 'application/json',
+                          headers= {'Authorization': 'Basic ' + authentication,
+                                    'Content-Type': 'application/json',
                                     'Accept': 'application/json'},
-                          data=postdata)
+                          data = json.dumps(postdata)
+                          )
 
         print r.status_code
+        print r.content
 
     except requests.RequestException as e:
         print e
+
 
 
 def main():
