@@ -8,9 +8,9 @@ Find a vRealize Orchestrator workflow by name.
 
 import argparse
 import getpass
-import requests
 import sys
 import urllib
+import requests
 
 
 def get_args():
@@ -112,7 +112,7 @@ def main():
         sys.exit(1)
 
     if r.status_code != requests.codes['ok']:
-        print 'Bad request: HTTP Status code %i - %s' %\
+        print 'Bad request: HTTP Status code %i - %s' % \
             (r.status_code, r.reason)
         sys.exit(1)
 
@@ -122,16 +122,16 @@ def main():
         print "Couldn't find workflow named: %s" % args.name
         sys.exit(1)
 
-    # Get the first (should be only) workflow
-    link = content['link'][0]
-    workflow = link_to_dict(link)
-    print 'Found workflow: %s' % workflow['name']
-    print
-    print 'Workflow info:'
-
-    for k, v in workflow.iteritems():
-        print '%s : %s' % (k, v)
-
+    # Print workflow info. May be more than one with same name.
+    print 'Found %i workflow(s) with name: %s' % (content['total'], args.name)
+    links = content['link']
+    for link in links:
+        workflow = link_to_dict(link)
+        print
+        print 'Workflow info for id: %s' % workflow['id']
+        workflow = link_to_dict(link)
+        for k, v in workflow.iteritems():
+            print '%s : %s' % (k, v)
 
 # Start program
 if __name__ == "__main__":
