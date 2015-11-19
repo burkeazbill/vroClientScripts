@@ -12,7 +12,9 @@ Param(
 # If you run the script with no parameters specified, the default values defined above will be used.
 # to run with params, See following example: (Should be all one line)
 # NOTE: It is not required to specify name of each parameter, but order will need to match the order in the above params section
-# PS E:\> .\runWorkflow.ps1 -usr vcoadmin -pwd vcoadmin -vroServer vro-server.domain.lab:8281 -wfid 2a2c773d-4f34-422e-b427-eddce95669d1 -apiFormat json -jsonFile e:body.json
+# PS E:\> .\runWorkflow.ps1 -usr vcoadmin -pwd vcoadmin -vroServer vro-server.domain.lab:8281 -wfid 2a2c773d-4f34-422e-b427-eddce95669d1 -apiFormat json -inputFile c:\body.json
+# 
+# NOTE: if the path to the inputFile contains spaces, enclose it in quotes.
 #
 ####################################################################
  
