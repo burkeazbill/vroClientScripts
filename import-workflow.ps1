@@ -1,6 +1,6 @@
-﻿Param(
-  [string]$vcoHost="localhost",
-  [string]$vcoPort="8281",
+Param(
+  [string]$vroHost="localhost",
+  [string]$vroPort="8281",
   [string]$user="vcoadmin",
   [string]$pass="vcoadmin",
   [Parameter(Mandatory=$true)]
@@ -86,9 +86,9 @@ $token = ConvertTo-Base64("$($user):$($pass)");
 $auth = "Basic $($token)";
 
 #request URL
-$impUrl = "https://$($vcoHost):$($vcoPort)/vco/api/workflows?categoryId=$($categoryId)&overwrite=true";
+$impUrl = "https://$($vroHost):$($vroPort)/vco/api/workflows?categoryId=$($categoryId)&overwrite=true";
 $header = @{"Authorization"= $auth;
-            "Accept"= "application/zip";
+            "Accept"= "application/json";
             "Accept-Encoding"= "gzip,deflate,sdch";};                
 
 $impUrl
