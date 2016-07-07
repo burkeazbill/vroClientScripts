@@ -9,6 +9,17 @@ Param(
   [System.IO.FileInfo] $file
  
 )
+
+#### Make no changes below this line ###############################
+# Usage:
+# If you run the script with no parameters specified, the default values defined above will be used.
+# to run with params, See following example: (Should be all one line)
+# NOTE: It is not required to specify name of each parameter, but order will need to match the order in the above params section
+# Use quotes for values in the following example when the value includes a space
+# PS C:\> ./import-workflow.ps1 -vroHost vro6.demo.lab -vroPort 8281 -user vcoadmin -pass vcoadmin -categoryId PASTE-CATEGORYID-HERE -file "c:\workflows\test import.workflow"
+#
+####################################################################
+
 add-type @"
     using System.Net;
     using System.Security.Cryptography.X509Certificates;
